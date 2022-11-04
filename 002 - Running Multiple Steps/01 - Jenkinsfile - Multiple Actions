@@ -1,7 +1,7 @@
 def write (text = ''){
 
 	touch "$text"
-	echo "date > $text"
+	sh "date > $text"
 	"cat $text"
 	
 }
