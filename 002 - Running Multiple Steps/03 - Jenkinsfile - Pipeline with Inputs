@@ -12,19 +12,23 @@ pipeline {
 			string (name: 'NAME')
 			}
 		}
+		steps {
+		echo "$NAME"
+		}
 	}
 	stage('ask for age'){
+	
 	input{
 	message 'give me age'
 		parameters{
 			string (age: 'AGE')
 				}
 		}
+		steps{
+		echo "$AGE"
+		}
+
 	}
-          steps {
-              echo "$NAME"
-              echo "$AGE"
-           }
       }
    
 }
