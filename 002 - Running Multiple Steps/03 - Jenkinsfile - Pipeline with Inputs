@@ -21,7 +21,7 @@ pipeline {
 	input{
 	message 'give me age'
 		parameters{
-			string (age: 'AGE')
+			string (name: 'AGE')
 				}
 		}
 		steps{
