@@ -10,7 +10,6 @@ pipeline {
 	message 'Give name and age'
 		parameters{
 		string (name: 'NAME')
-		string (age: 'AGE')
 		}
 	}
             steps {
