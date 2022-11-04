@@ -1,9 +1,20 @@
 pipeline {
+
+parameters{
+	choice (name: 'CHOICE', choices: ['build', 'test'], description: 'Pick something')
+}
     agent { 
 		docker { 
 			image 'alpine:latest' 
 		}
 	}
     stages {
-    }
+    stage('build'){
+    	echo 'build'
+    		}
+    	
+     stage('test'){
+	echo 'test'
+		}
+   	 }
 }
