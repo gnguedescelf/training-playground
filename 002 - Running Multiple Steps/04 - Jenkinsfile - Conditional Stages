@@ -9,14 +9,21 @@ parameters{
 		}
 	}
     stages {
+    
     stage('build'){
-   steps{
-    	echo 'build'
+    	when{
+		environment name: 'CHOICE', value: 'build'
+	}
+  	 steps{
+    		echo 'build'
     		}
     	}
      stage('test'){
-     steps{
-	echo 'test'
+     	when{
+		environment name: 'CHOICE', value: 'test'
+	}
+     	steps{
+		echo 'test'
 		}
    	 }
 	}
