@@ -1,3 +1,13 @@
+def writeToFile(text=''){
+
+	 sh "date > $text && cat $text"
+}
+
+def checkYear(year = '', file = ''){
+
+	sh "cat $file | grep $year"
+}
+
 pipeline {
     agent { 
 		docker { 
@@ -5,5 +15,13 @@ pipeline {
 		}
 	}
     stages {
+     stage('build'){	        
+        
+    steps{	              
+    writeToFile('file.txt')	              
+    }
+    stage ('test'){
+    checkYear('2022', 'file.txt')
+    }
     }
 }
