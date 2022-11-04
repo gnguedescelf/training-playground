@@ -1,3 +1,11 @@
+def write (text = ''){
+
+	touch "$text"
+	"date > $text"
+	cat "$text"
+	
+}
+
 pipeline {
     agent { 
 		docker { 
@@ -5,5 +13,13 @@ pipeline {
 		}
 	}
     stages {
+    	stage("create"){
+		steps{
+		write('file.txt')
+		sh 'sleep 10s'
+		write('file.txt')
+		sh 'sleep 10s'
+		}
+	}
     }
 }
