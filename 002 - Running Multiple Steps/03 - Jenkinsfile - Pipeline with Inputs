@@ -7,9 +7,15 @@ pipeline {
     stages {
         stage('build') {
 	input{
-	message 'Give name and age'
+	message 'Give name'
 		parameters{
-		string (name: 'NAME')
+			string (name: 'NAME')
+			}
+	input{
+	message 'give me age'
+		parameters{
+			string (age: 'AGE')
+				}
 		}
 	}
             steps {
