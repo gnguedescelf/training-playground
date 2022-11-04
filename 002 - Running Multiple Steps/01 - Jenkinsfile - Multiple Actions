@@ -16,6 +16,7 @@ pipeline {
     	stage("create"){
 		steps{
 		write('file.txt')
+		cat file.txt
 		sh 'sleep 10s'
 		write('file.txt')
 		sh 'sleep 10s'
