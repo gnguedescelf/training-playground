@@ -2,7 +2,7 @@ def write (text = ''){
 
 	touch "$text"
 	"date > $text"
-	cat "$text"
+	"cat $text"
 	
 }
 
