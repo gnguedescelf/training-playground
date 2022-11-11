@@ -1,1 +1,1 @@
-FROM npm:latest
+FROM node:latest
