@@ -5,5 +5,15 @@ pipeline {
 		}
 	}
     stages {
+    	stage ('printMvn'){
+		steps{
+			sh 'mvn --version'
+			}
+		}
+	}stage ('printNpm'){
+		steps{
+			sh 'npm --version'
+		}
+	}
     }
 }
