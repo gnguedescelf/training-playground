@@ -1,17 +1,34 @@
 pipeline {
     agent { 
-		docker { 
-			image 'alpine:latest' 
-		}
-	}
+        docker { 
+            image 'alpine:latest' 
+        }
+    }
+    environment {
+        JSON_CONFIG = '''
+            [{ 
+                name: "Java", 
+                command: "echo 'Java command!'"
+            }, { 
+                name: "Node", 
+                command: "echo 'Node command!'"
+            }, { 
+                name: "FrontEnd", 
+                command: "echo 'FrontEnd command!'"
+            }] 
+        '''
+    }
     stages {
         stage('build') {
             steps {
-                scripts {
-                	def buildConfigs = []
-                	buildConfigs.each{ buildConfig ->
-                		sh "echo '$buildConfig.name' && $buildConfig.command"
-					}
+                script {
+                    def buildConfigs = readJSON text: "$JSON_CONFIG"
+                    buildConfigs.each{ buildConfig ->
+                        sh "echo '$buildConfig.name' && $buildConfig.command"
+                stage("${buildConfig.name}") {
+                      sh "$buildConfig.command"
+                }
+            }
                 }
             }
         }
