@@ -7,13 +7,13 @@ pipeline {
     stages {
     	stage ('printMvn'){
 		steps{
-			sh 'mvn --version'
+			sh 'mvn -version'
 			}
 		}
 	
 	stage ('printNpm'){
 		steps{
-			sh 'npm --version'
+			sh 'npm -version'
 			}
 		}
 	}
