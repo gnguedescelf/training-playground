@@ -10,10 +10,12 @@ pipeline {
 			sh 'mvn --version'
 			}
 		}
-	}stage ('printNpm'){
+	
+	stage ('printNpm'){
 		steps{
 			sh 'npm --version'
+			}
 		}
 	}
-    }
+   }
 
