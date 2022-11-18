@@ -17,9 +17,8 @@ pipeline {
             steps {
 	      configFileProvider(
         	[configFile(fileId: 'settings.xml', targetLocation:'copy.xml' )]) {
-       			 sh "mvn -s copy.xml clean package"
+       			 sh "mvn -s copy.xml -f '$POM_PATH' test"
     			}
-                sh "mvn test"
             }
         }
     }
