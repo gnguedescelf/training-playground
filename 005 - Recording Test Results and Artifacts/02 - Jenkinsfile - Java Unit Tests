@@ -7,10 +7,11 @@ pipeline {
 	environment {
                 POM_PATH = '005 - Recording Test Results and Artifacts/02 - Java Unit Tests/pom.xml'
             }
-   	 stages {
-    	
-    	stage('build'){
-	   sh "mvn install -f $POM_PATH -Dmaven.test.skip=true"
+   stages {   	
+  	stage('build'){
+		steps{
+	   	  sh "mvn install -f $POM_PATH -Dmaven.test.skip=true"
+	   }
 	}
         stage('tests') {
             steps {
